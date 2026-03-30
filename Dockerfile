@@ -26,4 +26,4 @@ EXPOSE 8000
 RUN mkdir -p static/uploads uploads
 
 # Command to run the application using gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "4", "--timeout", "120", "app:app"]
+CMD gunicorn --bind 0.0.0.0:${PORT:-10000} --workers 1 --timeout 120 app:app
